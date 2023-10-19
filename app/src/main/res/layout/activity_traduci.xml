@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TextView per visualizzare la parola -->
+    <TextView
+        android:id="@+id/textViewParolaCorrente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <!-- EditText per la traduzione spagnola -->
+    <EditText
+        android:id="@+id/editTextTraduzioneSpagnolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewParolaCorrente"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Traduzione Spagnolo"
+        android:inputType="textCapSentences" />
+
+    <!-- EditText per la traduzione in inglese -->
+    <EditText
+        android:id="@+id/editTextTraduzioneInglese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTraduzioneSpagnolo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Traduzione Inglese"
+        android:inputType="textCapSentences" />
+
+    <!-- Pulsante "Check" -->
+    <Button
+        android:id="@+id/buttonCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTraduzioneInglese"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="Check" />
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AggiungiCategoriaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#EAEAEA"> <!-- Imposta il colore di sfondo grigio chiaro -->
+
+        <!-- EditText per inserire il nome -->
+        <EditText
+            android:id="@+id/nomeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@android:color/white"
+            android:inputType="textCapSentences"
+            android:padding="10dp"
+            android:hint="Inserisci il nome" /> <!-- Imposta il colore di sfondo bianco -->
+
+        <!-- TextView per il titolo delle note -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Note:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            android:textColor="@android:color/black" /> <!-- Imposta il colore del testo nero -->
+
+        <!-- EditText per scrivere le annotazioni -->
+        <EditText
+            android:id="@+id/noteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:padding="10dp"
+            android:hint="Scrivi le annotazioni qui"
+            android:inputType="textMultiLine"
+            android:gravity="start|top"
+            android:background="@android:color/white" />
+
+        <Button
+            android:id="@+id/createCategoriaButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Crea"
+            android:textStyle="bold"
+            android:textColor="#A0FF3C"
+            android:backgroundTint="#505050" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

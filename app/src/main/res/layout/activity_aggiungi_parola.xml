@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextItaliano"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inserisci la traduzione in Italiano"
+        android:inputType="textCapSentences"/>
+
+    <EditText
+        android:id="@+id/editTextSpagnolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inserisci la traduzione in Spagnolo"
+        android:inputType="textCapSentences"/>
+
+    <EditText
+        android:id="@+id/editTextInglese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inserisci la traduzione in Inglese"
+        android:inputType="textCapSentences"/>
+
+    <Button
+        android:id="@+id/buttonSalvaParola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salva" />
+
+</LinearLayout>

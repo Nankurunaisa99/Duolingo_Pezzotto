@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextItaliano2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inserisci la traduzione in Italiano"
+        android:inputType="textCapSentences"/>
+
+    <EditText
+        android:id="@+id/editTextSpagnolo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inserisci la traduzione in Spagnolo"
+        android:inputType="textCapSentences"/>
+
+    <EditText
+        android:id="@+id/editTextInglese2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inserisci la traduzione in Inglese"
+        android:inputType="textCapSentences"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/buttonModificaParola"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Modifica"
+            android:backgroundTint="#4DC26B"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/buttonEliminaParola"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Elimina"
+            android:backgroundTint="#FF5555"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>
