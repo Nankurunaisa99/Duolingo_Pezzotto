@@ -12,10 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
-import com.example.duolingopezzotto.Adapters.CustomCategorieAdapter;
 import com.example.duolingopezzotto.Adapters.CustomScegliCategorieAdapter;
 import com.example.duolingopezzotto.Comparator.CategoriaModelStringComparator;
-import com.example.duolingopezzotto.Models.CategoriaModel;
+import com.example.duolingopezzotto.SQLiteDB.Models.CategoriaModel;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
 

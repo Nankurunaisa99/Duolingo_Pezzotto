@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -19,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.duolingopezzotto.Adapters.CustomScegliCategorieAdapter;
 import com.example.duolingopezzotto.Comparator.ParolaModelLevelComparator;
-import com.example.duolingopezzotto.Models.ParolaModel;
+import com.example.duolingopezzotto.SQLiteDB.Models.ParolaModel;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
 

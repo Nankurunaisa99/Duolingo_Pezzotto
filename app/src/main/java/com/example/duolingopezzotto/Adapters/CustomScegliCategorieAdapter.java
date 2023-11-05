@@ -2,20 +2,17 @@ package com.example.duolingopezzotto.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duolingopezzotto.Activity.ParoleActivity;
-import com.example.duolingopezzotto.Models.CategoriaModel;
+import com.example.duolingopezzotto.SQLiteDB.Models.CategoriaModel;
 import com.example.duolingopezzotto.R;
 
 import java.util.ArrayList;

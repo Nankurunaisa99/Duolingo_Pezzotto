@@ -13,7 +13,7 @@ import android.util.Log;
 
 import com.example.duolingopezzotto.Adapters.CustomParoleAdapter;
 import com.example.duolingopezzotto.Comparator.ParolaModelStringComparator;
-import com.example.duolingopezzotto.Models.ParolaModel;
+import com.example.duolingopezzotto.SQLiteDB.Models.ParolaModel;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

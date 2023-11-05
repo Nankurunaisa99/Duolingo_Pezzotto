@@ -1,6 +1,6 @@
 package com.example.duolingopezzotto.Comparator;
 
-import com.example.duolingopezzotto.Models.CategoriaModel;
+import com.example.duolingopezzotto.SQLiteDB.Models.CategoriaModel;
 
 import java.util.Comparator;
 

@@ -53,12 +53,12 @@ public class ModificaParolaActivity extends AppCompatActivity {
                 Toast.makeText(this, "I campi non possono essere nulli", Toast.LENGTH_SHORT).show();
             else {
                 if(parola_id == -1){
-                    Toast.makeText(this, "C'è stato un errore durante la modifica della parola ATM", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "C'è stato un errore durante la modifica della parola", Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 else {
                     my_db.modificaParola(parola_id, italiano, spagnolo, inglese);
-                    Toast.makeText(this, "Tutto a posto ATM", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Tutto a posto", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }

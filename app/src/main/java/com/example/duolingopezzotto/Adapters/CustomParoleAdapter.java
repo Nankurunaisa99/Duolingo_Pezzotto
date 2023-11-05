@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duolingopezzotto.Activity.ModificaParolaActivity;
-import com.example.duolingopezzotto.Models.ParolaModel;
+import com.example.duolingopezzotto.SQLiteDB.Models.ParolaModel;
 import com.example.duolingopezzotto.R;
 
 import java.util.ArrayList;

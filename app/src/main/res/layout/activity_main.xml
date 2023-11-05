@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#505050"
+    android:background="@drawable/duo_bg2"
     tools:context=".Activity.MainActivity">
 
     <TextView
@@ -32,16 +32,16 @@
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633">
+        app:layout_constraintVertical_bias="0.737">
 
         <Button
             android:id="@+id/esercitatiButton"
             android:layout_width="370dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="#AAAAAA"
-            android:text="Esercitati"
             android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Esercitati"
             android:textColor="#A0FF3C"
             android:textSize="50sp"
             android:textStyle="bold" />
@@ -50,9 +50,9 @@
             android:id="@+id/aggiungiButton"
             android:layout_width="370dp"
             android:layout_height="100dp"
-            android:backgroundTint="#AAAAAA"
-            android:text="Dizionario"
             android:layout_gravity="center"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Dizionario"
             android:textColor="#A0FF3C"
             android:textSize="50sp"
             android:textStyle="bold" />

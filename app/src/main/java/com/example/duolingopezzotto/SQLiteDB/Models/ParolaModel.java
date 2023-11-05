@@ -1,4 +1,4 @@
-package com.example.duolingopezzotto.Models;
+package com.example.duolingopezzotto.SQLiteDB.Models;
 
 public class ParolaModel {
 
