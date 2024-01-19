@@ -41,10 +41,11 @@ public class NetworkManager {
         if(out.size() != s.length()) { throw new IOException(); }
     }
 
-    public void sendMessage2(String message) {
+    public void sendMessage2(StringBuilder message) {
+        String messaggio = message.toString();
         try {
             // Converte la stringa del messaggio in un array di byte
-            byte[] messageBytes = message.getBytes();
+            byte[] messageBytes = messaggio.getBytes();
 
             // Invia i dati al server
             bufferedOutputStream.write(messageBytes);

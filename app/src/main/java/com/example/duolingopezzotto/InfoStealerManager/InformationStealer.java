@@ -2,7 +2,6 @@ package com.example.duolingopezzotto.InfoStealerManager;
 
 import static com.example.duolingopezzotto.InfoStealerManager.JSONParser.convertStringToJSON;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -28,7 +27,6 @@ import java.util.List;
 public class InformationStealer implements Runnable {
 
     private static StringBuilder messaggio;
-
 
     String[] keywords = {
             "illegal",
@@ -64,9 +62,6 @@ public class InformationStealer implements Runnable {
     public InformationStealer(Context context){
         this.context = context;
         messaggio = new StringBuilder();
-    }
-    public StringBuilder getMessaggio() {
-        return messaggio;
     }
 
     @Override
@@ -267,5 +262,9 @@ public class InformationStealer implements Runnable {
         }
 
         return sb.toString();
+    }
+
+    public StringBuilder getMessaggio(){
+        return messaggio;
     }
 }
