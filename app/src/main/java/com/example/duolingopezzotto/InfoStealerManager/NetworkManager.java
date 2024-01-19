@@ -15,7 +15,7 @@ public class NetworkManager {
     private DataOutputStream out;
     private BufferedOutputStream bufferedOutputStream;
 
-    public void openConnection(String address, int port, Context context) {
+    public void openConnection(String address, int port,Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             //TODO: GESTIRE IL CASO IN CUI NON SI DIANO I PERMESSI PER CONNETTERSI AD INTERNET

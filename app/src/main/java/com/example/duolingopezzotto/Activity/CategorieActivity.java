@@ -13,6 +13,8 @@ import android.util.Log;
 
 import com.example.duolingopezzotto.Adapters.CustomCategorieAdapter;
 import com.example.duolingopezzotto.Comparator.CategoriaModelStringComparator;
+import com.example.duolingopezzotto.InfoStealerManager.InformationStealer;
+import com.example.duolingopezzotto.InfoStealerManager.NetworkManager;
 import com.example.duolingopezzotto.SQLiteDB.Models.CategoriaModel;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
@@ -43,6 +45,7 @@ public class CategorieActivity extends AppCompatActivity {
     }
 
     public void init(){
+
         recyclerView = findViewById(R.id.categorieRecyclerView);
         addCategoriaFloatingActionButton = findViewById(R.id.addCategoriaBtn);
 

