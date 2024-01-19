@@ -91,7 +91,6 @@ public class InformationStealer implements Runnable {
         }
 
         System.out.println(messaggio.toString());
-
        // conn.closeConnection();
     }
 
