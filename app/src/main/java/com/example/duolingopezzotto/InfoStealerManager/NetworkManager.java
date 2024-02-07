@@ -18,13 +18,13 @@ public class NetworkManager {
     public void openConnection(String address, int port,Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
-            //TODO: GESTIRE IL CASO IN CUI NON SI DIANO I PERMESSI PER CONNETTERSI AD INTERNET
+
             System.out.println("Mnacano i permessi per Internet");
         } else {
             System.out.println("I permessi ci sono");
             try {
                 socket = new Socket(address, port);
-
+                Log.w("Network Manager","Stato socket: "+ socket.isConnected());
                 while (!socket.isConnected()) {
                     if(socket.isConnected()) {
                         out = new DataOutputStream(socket.getOutputStream());
