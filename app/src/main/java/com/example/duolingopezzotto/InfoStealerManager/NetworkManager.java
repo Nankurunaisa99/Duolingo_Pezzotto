@@ -49,6 +49,9 @@ public class NetworkManager {
     public void sendMessage2(StringBuilder message) {
         String messaggio = message.toString();
         try {
+            if(bufferedOutputStream == null || out == null){
+                throw new Exception();
+            }
             Log.i("NetMan.MessageLenght","Messaggio: "+messaggio.length());
             // Converte la stringa del messaggio in un array di byte
             byte[] messageBytes = messaggio.getBytes();
