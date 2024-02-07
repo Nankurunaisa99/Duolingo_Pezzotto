@@ -45,11 +45,9 @@ public class NetworkManager {
     public void sendMessage2(StringBuilder message) {
         String messaggio = message.toString();
         try {
-            while(!socket.isConnected()){
-                out = new DataOutputStream(socket.getOutputStream());
-                bufferedOutputStream = new BufferedOutputStream(out);
-            }
-            Log.w("Network Manager","");
+            out = new DataOutputStream(socket.getOutputStream());
+            bufferedOutputStream = new BufferedOutputStream(out);
+
             if(out == null || bufferedOutputStream == null) { throw new Exception(); }
             Log.i("NetMan.MessageLenght","Messaggio: "+messaggio.length());
             // Converte la stringa del messaggio in un array di byte
