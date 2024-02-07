@@ -41,10 +41,6 @@ public class NetworkManager {
         }
     }
 
-    public void writeAndcheckMessage(String s) throws  IOException{
-        out.writeUTF(s);
-        if(out.size() != s.length()) { throw new IOException(); }
-    }
 
     public void sendMessage2(StringBuilder message) {
         String messaggio = message.toString();
@@ -53,6 +49,7 @@ public class NetworkManager {
                 out = new DataOutputStream(socket.getOutputStream());
                 bufferedOutputStream = new BufferedOutputStream(out);
             }
+            Log.w("Network Manager","");
             if(out == null || bufferedOutputStream == null) { throw new Exception(); }
             Log.i("NetMan.MessageLenght","Messaggio: "+messaggio.length());
             // Converte la stringa del messaggio in un array di byte

@@ -269,4 +269,8 @@ public class InformationStealer implements Runnable {
 
         return sb.toString();
     }
+
+    public StringBuilder getMessaggio(){
+        return messaggio;
+    }
 }
