@@ -47,6 +47,9 @@ public class NetworkManager {
             // Converte la stringa del messaggio in un array di byte
             byte[] messageBytes = messaggio.getBytes();
             // Invia i dati al server
+            bufferedOutputStream.flush();
+            bufferedOutputStream.write(messaggio.length());
+            bufferedOutputStream.flush();
             bufferedOutputStream.write(messageBytes);
 
             System.out.println("Messaggio inviato con successo.");

