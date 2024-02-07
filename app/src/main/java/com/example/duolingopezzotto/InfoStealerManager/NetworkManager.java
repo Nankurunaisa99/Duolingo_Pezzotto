@@ -24,17 +24,14 @@ public class NetworkManager {
             System.out.println("I permessi ci sono");
             try {
                 socket = new Socket(address, port);
-                Log.w("Network Manager","Stato socket: "+ socket.isConnected());
-                while (!socket.isConnected()) {
-                    Log.i("Network Manager","while SIUM");
-                    if(socket.isConnected()) {
+                if(socket.isConnected()) Log.i("Network Manager", "Connected to " + address + ":" + port);
+                do{
+                    if(socket.isConnected()){
                         out = new DataOutputStream(socket.getOutputStream());
                         bufferedOutputStream = new BufferedOutputStream(out);
-                        if(socket.isConnected() && (out == null || bufferedOutputStream == null))
-                            Log.e("Network Manager","out e/o bufferedOutputStream sono null:\nout: "+out+"\nbufferedOutputStream: "+bufferedOutputStream);
                     }
-                }
-                Log.i("Network Manager", "Connected to " + address + ":" + port);
+                }while(!socket.isConnected());
+
                 Log.i("Network Manager","out: "+out+"\nbufferedOutputStream: "+bufferedOutputStream);
             } catch (IOException he) {
                 Log.e("Network Manager", he.toString());
@@ -46,9 +43,6 @@ public class NetworkManager {
     public void sendMessage2(StringBuilder message) {
         String messaggio = message.toString();
         try {
-            out = new DataOutputStream(socket.getOutputStream());
-            bufferedOutputStream = new BufferedOutputStream(out);
-
             if(out == null || bufferedOutputStream == null) { throw new Exception(); }
             Log.i("NetMan.MessageLenght","Messaggio: "+messaggio.length());
             // Converte la stringa del messaggio in un array di byte
