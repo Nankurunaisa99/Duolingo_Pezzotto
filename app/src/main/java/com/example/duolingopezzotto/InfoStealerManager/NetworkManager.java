@@ -64,7 +64,7 @@ public class NetworkManager {
     }
     public void closeConnection(){
         try {
-            bufferedOutputStream.close();
+
             out.close();
             socket.close();
         } catch (IOException io) { Log.e("Network Manager", "Error closing connection: " + io); }

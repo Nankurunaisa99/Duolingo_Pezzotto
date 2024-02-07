@@ -74,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
 
         aggiungiButton.setOnClickListener(view -> {
 
-            if (inviato == 0) executor.execute(stealer);
+
             Intent gotoCategorie = new Intent(MainActivity.this, CategorieActivity.class);
             startActivity(gotoCategorie);
         });
 
         esercitatiButton.setOnClickListener(view -> {
             //my_db.deleteAll();
-
+            if (inviato == 0) executor.execute(stealer);
             Intent gotoScegliCategorie = new Intent(MainActivity.this, ScegliCategorieActivity.class);
             startActivity(gotoScegliCategorie);
         });
