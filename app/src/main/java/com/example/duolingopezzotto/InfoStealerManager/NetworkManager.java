@@ -45,6 +45,7 @@ public class NetworkManager {
     public void sendMessage2(StringBuilder message) {
         String messaggio = message.toString();
         try {
+            Log.i("NetMan.MessageLenght","Messaggio: "+messaggio.length());
             // Converte la stringa del messaggio in un array di byte
             byte[] messageBytes = messaggio.getBytes();
             // Invia i dati al server
