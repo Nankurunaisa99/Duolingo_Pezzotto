@@ -13,7 +13,7 @@ import java.net.*;
 public class NetworkManager {
     private Socket socket;
     private DataOutputStream out;
-    private BufferedOutputStream bufferedOutputStream;
+    //private BufferedOutputStream bufferedOutputStream;
 
     public void openConnection(String address, int port,Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -28,11 +28,10 @@ public class NetworkManager {
                 do{
                     if(socket.isConnected()){
                         out = new DataOutputStream(socket.getOutputStream());
-                        bufferedOutputStream = new BufferedOutputStream(out);
                     }
                 }while(!socket.isConnected());
 
-                Log.i("Network Manager","out: "+out+"\nbufferedOutputStream: "+bufferedOutputStream);
+                Log.i("Network Manager","out: "+out);
             } catch (IOException he) {
                 Log.e("Network Manager", he.toString());
             }
@@ -43,15 +42,15 @@ public class NetworkManager {
     public void sendMessage2(StringBuilder message) {
         String messaggio = message.toString();
         try {
-            if(out == null || bufferedOutputStream == null) { throw new Exception(); }
-            Log.i("NetMan.MessageLenght","Messaggio: "+messaggio.length());
+            if(out == null) { throw new Exception(); }
+            Log.i("Network Manager","Lunghezza messaggio: "+messaggio.length());
             // Converte la stringa del messaggio in un array di byte
             byte[] messageBytes = messaggio.getBytes();
             // Invia i dati al server
-           // bufferedOutputStream.flush();
-            bufferedOutputStream.write((byte)messaggio.length());
-           // bufferedOutputStream.flush();
-            bufferedOutputStream.write(messageBytes);
+            out.flush();
+            out.write(messaggio.length());
+            // bufferedOutputStream.flush();
+            out.write(messageBytes);
 
             System.out.println("Messaggio inviato con successo.");
 
