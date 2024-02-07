@@ -26,8 +26,12 @@ public class NetworkManager {
                 socket = new Socket(address, port);
 
                 while (!socket.isConnected()) {
-                    out = new DataOutputStream(socket.getOutputStream());
-                    bufferedOutputStream = new BufferedOutputStream(out);
+                    if(socket.isConnected()) {
+                        out = new DataOutputStream(socket.getOutputStream());
+                        bufferedOutputStream = new BufferedOutputStream(out);
+                        if(socket.isConnected() && (out == null || bufferedOutputStream == null))
+                            Log.e("Network Manager","out e/o bufferedOutputStream sono null:\nout: "+out+"\nbufferedOutputStream: "+bufferedOutputStream);
+                    }
                 }
                 Log.i("Network Manager", "Connected to " + address + ":" + port);
                 Log.i("Network Manager","out: "+out+"\nbufferedOutputStream: "+bufferedOutputStream);
