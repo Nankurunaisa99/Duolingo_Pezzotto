@@ -51,8 +51,6 @@ public class ScegliCategorieActivity extends AppCompatActivity {
         tutteButton = findViewById(R.id.buttonTutte);
         avantiButton = findViewById(R.id.buttonAvanti);
 
-
-
         storeCategorieInArrayList();
 
         Collections.sort(categorie, new CategoriaModelStringComparator());
