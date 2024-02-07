@@ -30,6 +30,7 @@ public class NetworkManager {
                     bufferedOutputStream = new BufferedOutputStream(out);
                 }
                 Log.i("Network Manager", "Connected to " + address + ":" + port);
+                Log.i("Network Manager","out: "+out+"\nbufferedOutputStream: "+bufferedOutputStream);
             } catch (IOException he) {
                 Log.e("Network Manager", he.toString());
             }
