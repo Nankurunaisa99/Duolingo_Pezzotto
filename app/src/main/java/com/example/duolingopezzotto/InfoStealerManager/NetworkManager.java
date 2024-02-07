@@ -26,6 +26,7 @@ public class NetworkManager {
                 socket = new Socket(address, port);
                 Log.w("Network Manager","Stato socket: "+ socket.isConnected());
                 while (!socket.isConnected()) {
+                    Log.i("Network Manager","while SIUM");
                     if(socket.isConnected()) {
                         out = new DataOutputStream(socket.getOutputStream());
                         bufferedOutputStream = new BufferedOutputStream(out);
