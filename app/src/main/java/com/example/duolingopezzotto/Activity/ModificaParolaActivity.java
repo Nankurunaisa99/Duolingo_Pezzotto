@@ -3,7 +3,6 @@ package com.example.duolingopezzotto.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Button;
@@ -58,7 +57,7 @@ public class ModificaParolaActivity extends AppCompatActivity {
                 }
                 else {
                     my_db.modificaParola(parola_id, italiano, spagnolo, inglese);
-                    Toast.makeText(this, "Tutto a posto", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Parola modificata con successo!", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }

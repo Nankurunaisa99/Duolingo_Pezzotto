@@ -47,7 +47,7 @@ public class AggiungiParolaActivity extends AppCompatActivity {
                 Toast.makeText(this, "I campi non possono essere nulli", Toast.LENGTH_SHORT).show();
             else {
                 my_db.addParola(italiano, spagnolo, inglese, 0l, categoriaID);
-                Toast.makeText(this, "Tutto a posto ATM", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Parola aggiunta con successo!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

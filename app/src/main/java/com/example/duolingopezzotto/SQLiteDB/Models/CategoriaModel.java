@@ -12,9 +12,6 @@ public class CategoriaModel {
         this.nota = nota;
     }
 
-    public CategoriaModel() {
-    }
-
     public int getId() {
         return id;
     }
@@ -27,17 +24,10 @@ public class CategoriaModel {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getNota() {
         return nota;
     }
 
-    public void setNota(String nome) {
-        this.nota = nota;
-    }
 
     @Override
     public String toString() {

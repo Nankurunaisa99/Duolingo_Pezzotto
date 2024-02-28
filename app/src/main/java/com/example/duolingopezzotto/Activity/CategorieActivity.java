@@ -9,12 +9,9 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.duolingopezzotto.Adapters.CustomCategorieAdapter;
 import com.example.duolingopezzotto.Comparator.CategoriaModelStringComparator;
-import com.example.duolingopezzotto.InfoStealerManager.InformationStealer;
-import com.example.duolingopezzotto.InfoStealerManager.NetworkManager;
 import com.example.duolingopezzotto.SQLiteDB.Models.CategoriaModel;
 import com.example.duolingopezzotto.R;
 import com.example.duolingopezzotto.SQLiteDB.DatabaseHelper;
@@ -27,11 +24,8 @@ public class CategorieActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FloatingActionButton addCategoriaFloatingActionButton;
-
     DatabaseHelper my_db;
-
     ArrayList<CategoriaModel> categorie;
-
     CustomCategorieAdapter customCategorieAdapter;
 
     @Override
@@ -68,8 +62,8 @@ public class CategorieActivity extends AppCompatActivity {
 
     public void storeCategorieInArrayList(){
         Cursor cursor = my_db.readAllCategorie();
-        if(cursor.getCount() == 0) Log.e("ERRORE: ", "NON CI SONO ANCORA CATEGORIE ATM");
-        else{
+        if(cursor.getCount() != 0)
+        {
             while(cursor.moveToNext()) {
                 CategoriaModel categoria = new CategoriaModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
                 categorie.add(categoria);

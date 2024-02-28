@@ -3,19 +3,14 @@ package com.example.duolingopezzotto.SQLiteDB;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Build;
-import android.util.Log;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -35,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CATEGORIA_NOTA = "CATEGORIA_NOTA";
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, context.getFilesDir() + File.separator + "databases" + File.separator + DATABASE_NAME, null, 1);
+        super(context, Objects.requireNonNull(context).getFilesDir() + File.separator + "databases" + File.separator + DATABASE_NAME, null, 1);
     }
 
     @Override
@@ -59,9 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ")";
 
         db.execSQL(createCategoriaTableStatement);
-        Log.e("MESSAGGIO", "\nPRIMA TABELLA CREATA\n");
         db.execSQL(createParolaTableStatement);
-        Log.e("MESSAGGIO", "\nSECONDA TABELLA CREATA\n");
 
 
     }
@@ -81,8 +74,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_CATEGORIA_NOTA, nota);
 
         long result = db.insert(CATEGORIA_TABLE, null, cv);
-        if (result == -1) Log.e("ERRORE: ", "OPS, QUALCOSA E' ANDATO STORTO, ATM");
-        else Log.e("SUCCESS", "TUTTO A POSTO, AAAAATM");
     }
 
     public void addParola(String ita, String sp, String eng, Long level, Long id){
@@ -96,25 +87,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PAROLA_CATEGORIA_ID, id);
 
         long result = db.insert(PAROLA_TABLE, null, cv);
-        if (result == -1) Log.e("ERRORE: ", "OPS, QUALCOSA E' ANDATO STORTO, ATM");
-        else Log.e("SUCCESS", "TUTTO A POSTO, AAAAATM");
-    }
-
-    public void deleteAll(){
-        deleteAllCategorie();
-        deleteAllParole();
-    }
-
-    public void deleteAllCategorie(){
-        String query = "DELETE FROM " + CATEGORIA_TABLE;
-        SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL(query);
-    }
-
-    public void deleteAllParole(){
-        String query = "DELETE FROM " + PAROLA_TABLE;
-        SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL(query);
     }
 
     public Cursor readAllCategorie(){
@@ -123,7 +95,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Cursor cursor = null;
         if(db != null) cursor = db.rawQuery(query, null);
-
         return cursor;
     }
 

@@ -16,9 +16,6 @@ public class ParolaModel {
         this.categoria_id = categoria_id;
     }
 
-    public ParolaModel() {
-    }
-
     public int getId() {
         return id;
     }
@@ -31,40 +28,20 @@ public class ParolaModel {
         return italiano;
     }
 
-    public void setItaliano(String italiano) {
-        this.italiano = italiano;
-    }
-
     public String getInglese() {
         return inglese;
-    }
-
-    public void setInglese(String inglese) {
-        this.inglese = inglese;
     }
 
     public String getSpagnolo() {
         return spagnolo;
     }
 
-    public void setSpagnolo(String spagnolo) {
-        this.spagnolo = spagnolo;
-    }
-
     public int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public int getCategoriaId() {
         return categoria_id;
-    }
-
-    public void setCategoriaId(int categoria_id) {
-        this.categoria_id = categoria_id;
     }
 
     @Override

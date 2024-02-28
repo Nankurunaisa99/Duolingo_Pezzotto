@@ -10,7 +10,6 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -78,8 +77,8 @@ public class TraduciActivity extends AppCompatActivity {
 
     public void storeAllParoleInArrayList(){
         Cursor cursor = my_db.readAllCParole();
-        if(cursor.getCount() == 0) Log.e("ERRORE: ", "NON CI SONO PAROLE ATM");
-        else{
+        if(cursor.getCount() != 0)
+        {
             while(cursor.moveToNext()) {
                 ParolaModel parola = new ParolaModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
                 lista_parole.add(parola);
@@ -89,8 +88,8 @@ public class TraduciActivity extends AppCompatActivity {
 
     public void storeSelectedParoleInArrayList(ArrayList<Integer> categorie){
         Cursor cursor = my_db.getParoleFromArrayList(categorie);
-        if(cursor.getCount() == 0) Log.e("ERRORE: ", "NON CI SONO PAROLE IN QUESTE CATEGORIE ATM");
-        else{
+        if(cursor.getCount() != 0)
+        {
             while(cursor.moveToNext()) {
                 ParolaModel parola = new ParolaModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
                 lista_parole.add(parola);
@@ -107,7 +106,7 @@ public class TraduciActivity extends AppCompatActivity {
             parola_eng.setText("");
 
         } else {
-            Toast.makeText(this, "Parole Finite ATM", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Parole Finite!", Toast.LENGTH_SHORT).show();
             finish();
         }
     }
@@ -119,9 +118,6 @@ public class TraduciActivity extends AppCompatActivity {
     }
 
     private void mostraDialogTraduzioniCorrette() {
-        // Aggiungi qui il codice per mostrare un dialog con le traduzioni corrette
-        // Puoi utilizzare AlertDialog o qualsiasi altro dialog personalizzato
-        // Esempio:
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Traduzioni corrette");
         builder.setMessage("Italiano: " + lista_parole.get(posizioneCorrente).getItaliano() + "\nSpagnolo: " + lista_parole.get(posizioneCorrente).getSpagnolo() + " \nInglese: " + lista_parole.get(posizioneCorrente).getInglese());

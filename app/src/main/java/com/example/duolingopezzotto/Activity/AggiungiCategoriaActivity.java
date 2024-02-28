@@ -38,7 +38,7 @@ public class AggiungiCategoriaActivity extends AppCompatActivity {
                 Toast.makeText(this, "I campi non possono essere nulli", Toast.LENGTH_SHORT).show();
             else {
                 my_db.addCategoria(nome, nota);
-                Toast.makeText(this, "Tutto a posto ATM", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Categoria aggiunta con successo!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
