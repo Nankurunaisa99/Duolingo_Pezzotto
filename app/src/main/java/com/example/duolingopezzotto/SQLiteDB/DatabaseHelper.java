@@ -56,6 +56,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createCategoriaTableStatement);
         db.execSQL(createParolaTableStatement);
 
+        addCategoriaDefault(db, "Default", "Categoria di Default");
+
 
     }
 
@@ -187,18 +189,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(PAROLA_TABLE,"ID=?", new String[]{String.valueOf(parolaID)});
     }
 
-    public void eliminaTutteLeTabelle() {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        // Elimina la tabella delle parole
-        db.execSQL("DROP TABLE IF EXISTS " + PAROLA_TABLE);
-
-        // Elimina la tabella delle categorie
-        db.execSQL("DROP TABLE IF EXISTS " + CATEGORIA_TABLE);
-
-        // Puoi aggiungere ulteriori istruzioni DROP TABLE qui se ci sono altre tabelle nel database
-
-        // Ricrea il database chiamando onCreate()
-        onCreate(db);
+    private void addCategoriaDefault(SQLiteDatabase db, String nome, String nota) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_CATEGORIA_NOME, nome);
+        contentValues.put(COLUMN_CATEGORIA_NOTA, nota);
+        db.insert(CATEGORIA_TABLE, null, contentValues);
     }
 }
