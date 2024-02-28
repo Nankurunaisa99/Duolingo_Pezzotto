@@ -30,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CATEGORIA_NOTA = "CATEGORIA_NOTA";
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, Objects.requireNonNull(context).getFilesDir() + File.separator + "databases" + File.separator + DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
@@ -53,11 +53,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_CATEGORIA_NOTA + " TEXT" +
                 ")";
 
+        db.execSQL("DROP TABLE IF EXISTS " + PAROLA_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + CATEGORIA_TABLE);
         db.execSQL(createCategoriaTableStatement);
         db.execSQL(createParolaTableStatement);
 
         addCategoriaDefault(db, "Default", "Categoria di Default");
-
 
     }
 
