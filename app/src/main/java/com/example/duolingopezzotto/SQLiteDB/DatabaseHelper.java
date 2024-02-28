@@ -56,7 +56,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createCategoriaTableStatement);
         db.execSQL(createParolaTableStatement);
 
-        addCategoria("Default", "Categoria di default");
 
     }
 
